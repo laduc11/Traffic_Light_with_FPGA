@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module single(
+module auto_single(
     input clk,
     input enable,
     input [1:0]init_state,

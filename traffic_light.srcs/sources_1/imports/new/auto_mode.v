@@ -36,7 +36,7 @@ module auto_mode(
  wire red1, yellow1, green1;
  wire red2, yellow2, green2;
  
- single traffic_1(.clk(clk), 
+ auto_single traffic_1(.clk(clk), 
                   .enable(enable), 
                   .init_state(RED),
                   .count_red(count_red), 
@@ -46,7 +46,7 @@ module auto_mode(
                   .yellow(yellow1),
                   .green(green1),
                   .counter(first_counter));
- single traffic_2(.clk(clk), 
+ auto_single traffic_2(.clk(clk), 
                   .enable(enable), 
                   .init_state(GREEN),
                   .count_red(count_red), 

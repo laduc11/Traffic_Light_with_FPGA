@@ -24,19 +24,43 @@ module manual_mode(
     input enable,
     input [1:0]mode,
     input increase,
-    input [6:0]pre_counter,
-    output [6:0]after_counter,
-    output [2:0]traffic
+    input [6:0]cur_red,
+    input [6:0]cur_yellow,
+    input [6:0]cur_green,
+    output [6:0]new_red,
+    output [6:0]new_yellow,
+    output [6:0]new_green,
+    output [2:0]first_way,
+    output [2:0]second_way
     );
     
-    parameter INIT = 2'b00, RED = 2'b01, YELLOW = 2'b10, GREEN = 2'b11;
-    reg [6:0]counter = 7'b0000000;
+    parameter RED = 2'b01, YELLOW = 2'b10, GREEN = 2'b11;
+    wire [6:0]pre_counter_1, pre_counter_2;
+    wire [1:0]mode_1, mode_2;
+    wire [6:0]after_counter_1, after_counter_2;
     
-    assign traffic = (4'b1000 >> mode);
-    assign after_counter = pre_counter + (counter & {7{enable}});
-        
-    always @(negedge increase) begin
-        if (counter + pre_counter < 99) counter = counter + 1;
-    end
+    
+    assign mode_1 = {mode[1], ~mode[1] | ~mode[0]};
+    assign mode_2 = {~mode[1], mode[1] | ~mode[0]};
+    assign new_red = mode_1 == RED ? after_counter_1 : (mode_2 == RED ? after_counter_2 : cur_red);
+    assign new_green = mode_1 == GREEN ? after_counter_1 : (mode_2 == GREEN ? after_counter_2 : cur_green);
+    assign new_yellow = mode_1 == YELLOW ? after_counter_1 : (mode_2 == YELLOW ? after_counter_2 : cur_yellow);
+    assign pre_counter_1 = mode_1 == RED ? cur_red : (mode_1 == YELLOW ? cur_yellow : cur_green);
+    assign pre_counter_2 = mode_2 == RED ? cur_red : (mode_2 == YELLOW ? cur_yellow : cur_green);
+
+    
+    manual_single manual_traffic_1(.enable(enable),
+                                   .mode(mode_1),
+                                   .increase(increase),
+                                   .pre_counter(pre_counter_1),
+                                   .after_counter(after_counter_1),
+                                   .traffic(first_way));
+    
+    manual_single manual_traffic_2(.enable(enable),
+                                   .mode(mode_2),
+                                   .increase(increase),
+                                   .pre_counter(pre_counter_2),
+                                   .after_counter(after_counter_2),
+                                   .traffic(second_way));
     
 endmodule
