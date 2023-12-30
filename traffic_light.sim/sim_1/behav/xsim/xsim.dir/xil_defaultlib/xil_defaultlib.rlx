@@ -1,0 +1,12 @@
+0.6
+2018.1
+Apr  4 2018
+19:30:32
+E:/DATKLL/traffic_light/traffic_light.sim/sim_1/behav/xsim/glbl.v,1522801934,verilog,,,,glbl,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sim_1/imports/new/manager_tb.v,1703916575,verilog,,,,manager_tb,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/auto_mode.v,1703089893,verilog,,E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/auto_single.v,,auto_mode,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/auto_single.v,1703089726,verilog,,E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/display7seg.v,,auto_single,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/display7seg.v,1703071359,verilog,,E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/manager.v,,display7seg,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/manager.v,1703916562,verilog,,E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/manual_mode.v,,manager,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/manual_mode.v,1703089846,verilog,,E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/manual_single.v,,manual_mode,,,,,,,,
+E:/DATKLL/traffic_light/traffic_light.srcs/sources_1/imports/new/manual_single.v,1703095292,verilog,,E:/DATKLL/traffic_light/traffic_light.srcs/sim_1/imports/new/manager_tb.v,,manual_single,,,,,,,,

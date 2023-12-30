@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../traffic_light.srcs/sources_1/imports/new/auto_mode.v" \
+"../../../../traffic_light.srcs/sources_1/imports/new/auto_single.v" \
+"../../../../traffic_light.srcs/sources_1/imports/new/display7seg.v" \
+"../../../../traffic_light.srcs/sources_1/imports/new/manager.v" \
+"../../../../traffic_light.srcs/sources_1/imports/new/manual_mode.v" \
+"../../../../traffic_light.srcs/sources_1/imports/new/manual_single.v" \
+"../../../../traffic_light.srcs/sim_1/imports/new/manager_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
